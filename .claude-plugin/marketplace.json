@@ -1,0 +1,15 @@
+{
+  "name": "b2b-personal-branding",
+  "owner": {
+    "name": "Shashwat Ghosh",
+    "url": "https://github.com/shashwatgtm"
+  },
+  "description": "Personal branding skills for B2B professionals by Shashwat Ghosh, Helix GTM Consulting: positioning and bios, a handcrafted voice audit, and sourced newsletter curation.",
+  "plugins": [
+    {
+      "name": "b2b-personal-branding",
+      "source": "./plugins/b2b-personal-branding",
+      "description": "Write your bios, positioning, LinkedIn profile and content pillars from your own facts, audit drafts for machine-sounding text, and curate newsletters where every item cites its source."
+    }
+  ]
+}

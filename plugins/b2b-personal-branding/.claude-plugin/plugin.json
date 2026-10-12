@@ -1,0 +1,14 @@
+{
+  "name": "b2b-personal-branding",
+  "displayName": "B2B Personal Branding",
+  "version": "1.0.0",
+  "description": "Write your professional bios, speaker bio, positioning statement, LinkedIn headline and About, brand narrative, content pillars and a personal branding post series from your own facts; audit drafts for AI-sounding words and dashes and rewrite only what is flagged; and curate B2B newsletters where every item cites its source link and numbers match across every asset.",
+  "author": {
+    "name": "Shashwat Ghosh",
+    "url": "https://gtmexpert.com"
+  },
+  "homepage": "https://github.com/shashwatgtm/b2b-personal-branding",
+  "repository": "https://github.com/shashwatgtm/b2b-personal-branding",
+  "license": "MIT",
+  "keywords": ["personal-branding", "personal-brand", "bio", "speaker-bio", "linkedin-profile", "positioning", "thought-leadership", "content-pillars", "voice", "tone-of-voice", "ai-writing", "humanize", "newsletter", "content-curation", "b2b", "founder", "executive-branding"]
+}
