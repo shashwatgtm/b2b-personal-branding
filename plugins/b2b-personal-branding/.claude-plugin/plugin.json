@@ -10,5 +10,8 @@
   "homepage": "https://github.com/shashwatgtm/b2b-personal-branding",
   "repository": "https://github.com/shashwatgtm/b2b-personal-branding",
   "license": "MIT",
+  "documentationUrl": "https://github.com/shashwatgtm/b2b-personal-branding#readme",
+  "supportUrl": "https://github.com/shashwatgtm/b2b-personal-branding/issues",
+  "privacyPolicyUrl": "https://tools.gtmhelix.com/privacy/",
   "keywords": ["personal-branding", "personal-brand", "bio", "speaker-bio", "linkedin-profile", "positioning", "thought-leadership", "content-pillars", "voice", "tone-of-voice", "ai-writing", "humanize", "newsletter", "content-curation", "b2b", "founder", "executive-branding"]
 }
