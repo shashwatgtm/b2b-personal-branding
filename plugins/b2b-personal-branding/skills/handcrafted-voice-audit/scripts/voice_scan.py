@@ -69,6 +69,11 @@ NOT_X_Y_RE = re.compile(
     r"|\b(?:that|it|this) (?:isn't|wasn't|isn\u2019t|wasn\u2019t)\b[^.!?\n]{1,80}[.!?]\s+(?:that|it|this)(?:'s|\u2019s| is| was)\b",
     re.IGNORECASE,
 )
+NOT_JUST_RE = re.compile(
+    r"\b(?:not|no longer|isn't|aren't|wasn't|weren't|isn\u2019t|aren\u2019t|wasn\u2019t|weren\u2019t|don't|doesn't|didn't|don\u2019t|doesn\u2019t|didn\u2019t|do not|does not)\s+(?:just|only|merely|simply)\b"
+    r"[^.!?\n;:\u2014\u2013]{1,80}(?:[.;:!?]|\s[\u2014\u2013]|\s-\s|,)\s*(?:but\s+)?(?:it|they|we|this|that|you)(?:'s|\u2019s|'re|\u2019re)?\b",
+    re.IGNORECASE,
+)
 MONDAY_RE = re.compile(r"\b(?:start|starting|begin|try|do)\b[^.!?\n]{0,40}\b(?:on|from|this|next)\s+Monday\b|\bMonday morning\b", re.IGNORECASE)
 OLD_NEW_RE = re.compile(r"\bold (?:thinking|way)\b[\s\S]{0,200}?\bnew (?:thinking|way)\b", re.IGNORECASE)
 THOUGHT_LEADER_SELF_RE = re.compile(r"\b(?:I am|I'm|I\u2019m|as a|me as a|position me as a?)\s+(?:an?\s+)?thought leader", re.IGNORECASE)
@@ -84,6 +89,14 @@ DATE_RES = [
     # Thursday, May 13, 2026
     re.compile(r"\b(?P<wd>mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?,?\s+(?P<m>[a-z]{3,9})\.?\s+(?P<d>\d{1,2})(?:st|nd|rd|th)?,?\s+(?P<y>\d{4})\b", re.IGNORECASE),
 ]
+
+
+def utf8_output():
+    """Write UTF-8, so a rupee sign, a Unicode minus or a curly quote never stops the script on a Windows console or pipe
+    set to code page 1252 (S2, version 1.0.2). A stream that cannot be reconfigured (a test buffer) is left as it is."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
 
 
 def weekday_errors(text):
@@ -206,6 +219,9 @@ def scan(text, skip_quotes=False):
     for m in NOT_X_Y_RE.finditer(joined):
         n = joined[:m.start()].count("\n") + 1
         add(n, "not X, Y", "banned", m.group(0)[:90], "contrast LLMism: 'That's not X. That's Y'")
+    for m in NOT_JUST_RE.finditer(joined):
+        n = joined[:m.start()].count("\n") + 1
+        add(n, "not X, Y", "banned", m.group(0)[:90], "contrast LLMism variant: 'not just X. They are Y'")
     for m in OLD_NEW_RE.finditer(joined):
         n = joined[:m.start()].count("\n") + 1
         add(n, "old/new", "review", m.group(0)[:60], "'Old thinking / New thinking' framing")
@@ -238,6 +254,7 @@ def scan(text, skip_quotes=False):
 
 
 def main(argv=None):
+    utf8_output()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("path", help="text file to scan, or - for stdin")
     ap.add_argument("--skip-quotes", action="store_true", help="ignore text inside double quotes (source quotes)")

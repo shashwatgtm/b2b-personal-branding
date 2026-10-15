@@ -1,6 +1,6 @@
 # Brand narrative, content pillars and the 4 to 6 post series
 
-Everything here is built from the person's own moments (positioning-and-bios.md, section 2). Where a moment is missing, the plan says what is needed; it never fills the gap. Where the facts or wording the person gave already support an angle or a post (a method they described, a public company line they quoted), write that angle or the post's working title and opening line as near-final copy built only from those facts, labelled for the person to confirm; placeholders stay only where a fact was not given. A pillar angle or post that no given fact covers may carry a [Draft for you to confirm: ...] topic drawn from the pillar and the company's opened pages, with its source, that makes no claim about the person; the moment it needs stays [User to add: ...].
+Everything here is built from the person's own moments (positioning-and-bios.md, section 2). Where a moment is missing, the plan says what is needed; it never fills the gap. Where the facts or wording the person gave already support an angle or a post (a method they described, a public company line they quoted), write that angle or the post's working title and opening line as near-final copy built only from those facts, labelled for the person to confirm; placeholders stay only where a fact was not given. A pillar angle or post that no given fact covers carries a [Draft for you to confirm: ...] topic drawn from the pillar and the company's opened pages, with its source, that makes no claim about the person, whenever those pages support one; the moment it needs stays [User to add: ...] inside it. A bare placeholder stands in for a whole angle or a whole opening line only when neither the person's facts nor an opened company page supports a topic, or when the post's job is the person's own story (origin, lessons, what comes next).
 
 ## 1. Brand narrative (one page, first person, prose)
 
@@ -34,7 +34,7 @@ Most of the person's posting and commenting should stay inside these pillars ove
 | Pillar name | in the audience's words, not a coined label |
 | Lived source | the roles, projects or moments that give the person a right to speak on it |
 | Reader question | the question this pillar answers for the buyer or peer |
-| Three post angles | each tied to a moment or a piece of work |
+| Three post angles | each tied to a moment or a piece of work the person gave, or, where none is given, a [Draft for you to confirm: angle ...] from the pillar and the company's opened pages with its source, and the moment it needs as [User to add: ...] |
 | Proof available | facts from the fact sheet the pillar can use |
 | Out of bounds | what stays private (employer numbers, client names, roadmap) |
 | Sector words | the vocabulary of the vertical (see verticals.md) |
@@ -62,6 +62,7 @@ Rules for every post in the series:
 - Two or three hashtags, one broad and the rest specific, kept consistent across the series.
 - Visuals as separate images with real ALT text, not a PDF carousel.
 - Facts needed: listed per post as [User to add: ...] until supplied.
+- Opening lines: for a method, contrast, practice or reader question post that no given fact covers, the working title and the opening line are drafted from the pillar and the company's opened pages as [Draft for you to confirm: ...] with their source, with the person's own step, stance or answer as [User to add: ...] inside them (a post the given facts cover gets near-final lines from them, as part 2 of SKILL.md Example 4 does); only an origin, lessons or what's next post keeps the person's moment as the whole opening placeholder (as in SKILL.md Example 4).
 
 ## 5. Hand off for post drafting
 

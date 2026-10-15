@@ -7,7 +7,7 @@ Run on every asset before it is shown. For a full audit with line by line flags,
 3. "Thought leader" is never applied to the person by themselves or for them.
 4. No stock openers such as "Humbled to share", "Thrilled to announce" or "Excited to share".
 5. Credentials and chest thumping never lead. The first line is about the work, the reader or a lived moment.
-6. No "That's not X. That's Y" contrast lines, no "First... Second... Third..." in prose, no staccato fragments of one to three words, no neat punchlines, no hyperbole.
+6. No "That's not X. That's Y" contrast lines or their variants ("They are not just X. They are Y.", "We don't just X; we Y"), no "First... Second... Third..." in prose, no staccato fragments of one to three words, no neat punchlines, no hyperbole.
 7. No exclamation marks, emoji, Unicode bold letters, arrows or checkmarks.
 8. The person's own raw phrases are kept where they carry meaning. Indian English is fine.
 9. Reading level fits the audience: secondary school to graduate for most professional readers.

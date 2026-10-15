@@ -6,6 +6,7 @@ This file is guidance on care and consent. It is not legal advice. When a contra
 - The personal brand and the company brand are tied. Company claims (customers, revenue, funding) need the same care as a press release; check them with co-founders before they go public.
 - The title is written exactly as it is: co-founder is co-founder.
 - Plan for the brand to survive a change: build on the problems the person solves, not only on the company name.
+- Results from a co-founder's or partner's own engagements are theirs; never write them as the person's.
 
 ## Employee at any level (including CXOs)
 - Ask first: does the employer have a social media or disclosure policy, and who approves posts that mention the company? Read the policy before drafting company related content.
@@ -17,17 +18,19 @@ This file is guidance on care and consent. It is not legal advice. When a contra
 
 ## Between roles, or planning to leave
 - Say only public facts about a past or current employer.
+- Credit the person only with what happened at an employer while they were there. An acquisition, exit, funding round, award or result that came after they left, or that they have not confirmed as theirs, is left out or written as the company's own news with its date, never as the person's result. When the dates are unclear, ask.
 - If the person plans to work with the same customers or in the same niche, suggest they check their agreement before positioning; this skill does not interpret contracts.
 
 ## Consultant, advisor or fractional leader
 - Client names appear only with the client's permission. Otherwise describe the client as the person words it, and never invent a client type.
 - Outcomes appear only as the client has agreed to share them, with what they measured.
 - Keep separate lanes clear: each brand or company the person represents says only what that company offers.
+- When a client, employer, customer or colleague must not be named, list those names on the fact sheet as "not to be named" before drafting. Before delivery, search every asset (body text, headings, captions, image file names, notes, open items) for each name and its short forms, and replace any hit with the description the person uses. A redaction note never carries the name it hides: write "a client in [sector, as the person words it]", never "[Name] redacted". The checks line says which names were searched and that none remain.
 
 ## Ghostwriter, agency writer or executive assistant
 - The principal approves every asset. Mark each story beat "[Principal to confirm]".
 - Never write first person claims the principal has not made.
-- Use the principal's voice guide if one exists; otherwise ask for samples.
+- Use the principal's voice guide if one exists; otherwise ask for samples. A voice sample counts only if the principal wrote it: before using a sample to set someone's voice, ask who wrote it; a draft written for them by someone else (a colleague, an agency or an AI tool) is not a sample of their voice and is not copied.
 
 ## Regulated and sensitive sectors
 - Fintech and other regulated sectors: no advice, no outcome promises; when the person comments on a rule, link the regulator's own page and add an information only line.

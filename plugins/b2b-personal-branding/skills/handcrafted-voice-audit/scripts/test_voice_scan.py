@@ -47,6 +47,20 @@ class VoiceScanTests(unittest.TestCase):
         for word in ["game-changer", "seamless", "move the needle", "rubric", "humbled to share"]:
             self.assertIn(word, spans)
 
+    def test_not_just_contrast_variants_are_flagged(self):
+        for text in ["Legacy rules engines are not just outdated. They are a liability.",
+                     "Legacy systems are no longer just a challenge \u2014 they're an existential threat.",
+                     "At our firm we don't just modernize; we transform.",
+                     "This is not just a tool, it is a habit."]:
+            res = vs.scan(text)
+            self.assertIn("not X, Y", kinds(res), text)
+
+    def test_plain_not_just_without_a_second_claim_passes(self):
+        for text in ["We met not just in Mumbai but in Pune as well.",
+                     "It was not only cheaper but also faster to set up."]:
+            res = vs.scan(text)
+            self.assertNotIn("not X, Y", kinds(res), text)
+
     def test_wrong_weekday_found_and_named(self):
         res = vs.scan("Launch on Thursday, 13 May 2026.")
         d = [f for f in res["flags"] if f["kind"] == "date"]
@@ -107,6 +121,41 @@ class VoiceScanTests(unittest.TestCase):
             self.assertEqual(vs.main([path, "--strict"]), 1)
         finally:
             os.unlink(path)
+
+
+def _run_cp1252(script_name, args, files):
+    """S2, run 32A: run the script as a user on Windows would, with output set to code page 1252 (a console or pipe)."""
+    import subprocess
+    import tempfile
+    d = tempfile.mkdtemp()
+    paths = []
+    for name, body in files:
+        p = os.path.join(d, name)
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write(body)
+        paths.append(p)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), script_name)
+    env = dict(os.environ, PYTHONIOENCODING="cp1252")
+    return subprocess.run([sys.executable, script] + [a.format(*paths) for a in args], capture_output=True, env=env)
+
+
+class CodePage1252Tests(unittest.TestCase):
+    """S2, run 32A: a character outside plain ASCII (rupee sign, Unicode minus, curly quotes) is written as UTF-8 and the
+    script never stops with an encoding error on a Windows console or pipe set to code page 1252."""
+
+    def assert_utf8_output(self, p, expected):
+        self.assertNotIn(b"Traceback", p.stderr, p.stderr.decode("utf-8", "replace"))
+        self.assertNotIn(b"UnicodeEncodeError", p.stderr)
+        self.assertIn(p.returncode, (0, 1))
+        self.assertIn(expected.encode("utf-8"), p.stdout)
+
+    def test_flag_with_unicode_minus(self):
+        p = _run_cp1252("voice_scan.py", ["{0}"], [("d.txt", "Revenue \u20b951.4 crore \u221214%. Amazing!\n")])
+        self.assert_utf8_output(p, "\u2212")
+
+    def test_json(self):
+        p = _run_cp1252("voice_scan.py", ["{0}", "--json"], [("d.txt", "Revenue \u20b951.4 crore \u221214%. Amazing!\n")])
+        self.assert_utf8_output(p, "\u2212")
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@
     {
       "name": "b2b-personal-branding",
       "source": "./plugins/b2b-personal-branding",
+      "version": "1.0.2",
       "description": "Write your bios, positioning, LinkedIn profile and content pillars from your own facts, audit drafts for machine-sounding text, and curate newsletters where every item cites its source."
     }
   ]

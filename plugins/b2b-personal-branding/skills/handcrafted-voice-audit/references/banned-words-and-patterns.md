@@ -18,7 +18,7 @@ Self labels: "thought leader" or "thought leadership" applied to the writer by t
 | navigate | a literal route | abstract: "navigate change" |
 | dynamic | a technical term: "dynamic pricing" | praise: "a dynamic leader" |
 | mechanics | literal | a vague label for "how it works" |
-| just | it carries meaning ("just in time") | filler ("just wanted to say") |
+| just | it carries meaning ("just in time") | filler ("just wanted to say"), or inside a contrast ("not just X", "no longer just X" followed by a second claim): that is the banned contrast pattern, never a meaningful keep |
 | incredible, unprecedented, massive, mind-blowing | almost never | hyperbole |
 
 "Landed hard" and similar phrases are banned in published copy only. A user saying "that lands" in a chat message is not a flag.
@@ -28,7 +28,7 @@ Self labels: "thought leader" or "thought leadership" applied to the writer by t
 | Pattern | Example | Fix |
 |---|---|---|
 | Long, short or spaced dashes | "We shipped it [long dash] and waited." (the long dash is Unicode U+2014; the short dash is U+2013) | Split into two sentences, or use a comma or a colon. Hyphens inside words stay. |
-| "That's not X. That's Y" and its variants ("It wasn't X. It was Y.") | "That's not a feature. That's a movement." | Say the one true thing plainly: "The feature changed how our agents close calls." |
+| "That's not X. That's Y" and its variants ("It wasn't X. It was Y.", "They are not just X. They are Y.", "no longer just X; now Y", "We don't just X; we Y") | "That's not a feature. That's a movement." | Say the one true thing plainly: "The feature changed how our agents close calls." When both halves are the writer's claims, keep both as plain statements ("The engines are outdated. They are also a liability.") and never join them with a cause, effect or link the writer did not give ("and that makes them", "because", "so"). |
 | Lazy "start on Monday" lines | "Start on Monday and see the difference." | Give the concrete first step, or cut the line. |
 | Uncommon coined labels | "the Insight Flywheel Stack" when nobody uses that name | Describe what it is in common words. |
 | Unusual or showy words where a plain word works | "a myriad of", "a plethora of", "pivotal" | Use the word the reader would say ("many", "key"). A review item: the scan does not catch it, so read for it. |

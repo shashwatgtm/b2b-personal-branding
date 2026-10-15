@@ -12,10 +12,11 @@
 - A paywall or a blocked page: say so. In connected mode, run a web search for its headline before dropping it; text from the results is labelled "from a search result; the page itself was not opened" and is never written into the issue as fact. Use only the visible headline and date, or drop the item. Never fill in the article from memory or from other coverage without saying so.
 - A link that fails: report it by URL and drop the item unless the user supplies the text.
 - Anything recalled from memory rather than read on a page opened or text pasted in this session (a report's exact title, a figure, a date, a publisher's or company's usual practice) is marked "not checked in this session" wherever it appears, offered as a lead for the user to open, and never written into the issue as fact.
-- Never write "all links verified" or "links checked". Give the per link list instead:
+- Never write "all links verified" or "links checked". Give the per link list instead.
+- For each source the user hands over, say whether it was used and, if it was left out, why.
 
-| Item | URL | Opened | Date on page | Quote found |
-|---|---|---|---|---|
+| Item | URL | Opened | Date on page | Quote found | Used, or left out and why |
+|---|---|---|---|---|---|
 
 ## 3. Dates
 - Write the date as the source writes it, with the month as a word.
@@ -31,6 +32,7 @@
 - Never round a figure in a way that changes it ("29.5%" is "about 3 in 10", not "1 in 3").
 - A number "everyone knows" with no source is not used. Ask for the source, search for the primary source in connected mode, or rewrite the line without a number.
 - Analyst firm figures: name the firm, the report and the date; label region and sample.
+- A page that cites several sources: say which figure comes from which source, as the page itself attributes it (for example one figure from a consultancy report, another from the company's own platform data). Never describe all of a page's figures as coming from one source when the page names more than one, and for a figure whose source you did not find on the page, write "source of this figure not found on the page I opened: [the page]", never that the page gives no source (one fetch is not proof of absence).
 
 ## 5. Quotes
 - Quotes are short, exact, inside quotation marks, and from the opened page.
@@ -43,4 +45,4 @@
 - Competitors of the user's employer: report facts from primary sources only; no mockery.
 
 ## 7. Number lock across assets
-Every number in the subject line, preview text, share card, teaser post and any derived asset must match the issue. Run scripts/asset_check.py with the issue and every derived file. Fix drift to the sourced figure in the issue, then run it again. Spelled out numbers ("three launches") are not caught by the script; check them by reading.
+Every number in the subject line, preview text, share card, teaser post and any derived asset must match the issue. Run scripts/asset_check.py with the issue and every derived file (add --deep-dive only for a deep dive issue with no "### " curated items). Fix drift to the sourced figure in the issue, then run it again. Spelled out numbers ("three launches") are not caught by the script; check them by reading.

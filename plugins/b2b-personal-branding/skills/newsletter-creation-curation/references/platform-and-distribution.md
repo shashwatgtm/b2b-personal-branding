@@ -22,9 +22,9 @@ Record what was checked, with the page and date, in the answer. If nothing could
 - Subject lines and preview text: three options, each with its count, no clickbait, no fake urgency, no emoji. They carry the same guard as the body: no stronger claim than the issue makes, and a claim the issue attributes ("the company says on its home page") stays attributed.
 - A social teaser post: points to the issue without giving all of it away. On LinkedIn: no link in the post body (the link goes in a comment), opens with the writer or the reader's situation, one idea, an open question to close, two or three hashtags. If a LinkedIn post skill is installed in the session, hand the teaser brief to it; otherwise draft it here under the voice check.
 - A long form version on another platform: keep the canonical page as the home, set the canonical link where the platform allows it, and keep source links out of the body flow there when the user wants readers to stay; list sources at the end instead.
-- Cross posting: each platform's own guidelines apply; never paste the same text to several platforms where the platform treats it as duplicate; adapt the opening and the call to action.
+- Cross posting: each platform's own guidelines apply; never paste the same text to several platforms where the platform treats it as duplicate; adapt the opening and the call to action. A planned series across platforms follows the approved series plan (issue-structure.md, section 4), with each data point and story in one part only.
 
-Every derived asset goes through scripts/asset_check.py with the issue.
+Every derived asset goes through scripts/asset_check.py with the issue (add --deep-dive only for a deep dive issue).
 
 ## 3. Approval gate
 

@@ -6,7 +6,10 @@ heading and must carry an http or https link. Derived assets (share card
 text, subject lines, a LinkedIn teaser) are extra files.
 
 It prints:
-- items in the issue with no link;
+- items in the issue with no link, and a problem when the issue has 0 curated
+  items ("0 curated items found: each item must start with a '### ' heading"),
+  unless --deep-dive is given for a deep dive issue (one topic, no curated
+  items); an empty issue is a problem either way;
 - every number in each file, with the word after it;
 - numbers in a derived asset that do not appear in the issue (possible drift);
 - labels (such as "agents" or "%") that carry different numbers across files;
@@ -18,7 +21,7 @@ It does not open links. Opening each link is a separate step, done with the
 chat's web tools, and reported per link.
 
 Standard library only. Usage:
-  python3 asset_check.py issue.md --derived card.txt --derived teaser.txt [--json]
+  python3 asset_check.py issue.md --derived card.txt --derived teaser.txt [--deep-dive] [--json]
 """
 import argparse
 import datetime as _dt
@@ -37,6 +40,14 @@ DATE_RES = [
     re.compile(r"\b(?P<wd>mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?,?\s+(?P<d>\d{1,2})(?:st|nd|rd|th)?\s+(?P<m>[a-z]{3,9})\.?,?\s+(?P<y>\d{4})\b", re.IGNORECASE),
     re.compile(r"\b(?P<wd>mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?,?\s+(?P<m>[a-z]{3,9})\.?\s+(?P<d>\d{1,2})(?:st|nd|rd|th)?,?\s+(?P<y>\d{4})\b", re.IGNORECASE),
 ]
+
+
+def utf8_output():
+    """Write UTF-8, so a rupee sign, a Unicode minus or a curly quote never stops the script on a Windows console or pipe
+    set to code page 1252 (S2, version 1.0.2). A stream that cannot be reconfigured (a test buffer) is left as it is."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
 
 
 def strip_urls(text):
@@ -76,14 +87,22 @@ def numbers_in(text):
     return out
 
 
+FENCE_RE = re.compile(r"(?ms)^(```|~~~).*?^\1[^\n]*$")
+
+
+def item_blocks(issue):
+    """The curated items: blocks that start with a '### ' line outside a code fence."""
+    return re.split(r"(?m)^### ", FENCE_RE.sub("", issue))[1:]
+
+
 def items_without_link(issue):
-    blocks = re.split(r"(?m)^### ", issue)
+    blocks = item_blocks(issue)
     missing = []
-    for b in blocks[1:]:
+    for b in blocks:
         title = b.splitlines()[0].strip() if b.strip() else "(empty item)"
         if not URL_RE.search(b):
             missing.append(title)
-    return missing, len(blocks) - 1
+    return missing, len(blocks)
 
 
 def field_counts(text):
@@ -110,8 +129,11 @@ def field_counts(text):
     return out
 
 
-def check(issue, derived):
-    """issue: str. derived: dict name -> str."""
+ZERO_ITEMS = "0 curated items found: each item must start with a '### ' heading"
+
+
+def check(issue, derived, deep_dive=False):
+    """issue: str. derived: dict name -> str. deep_dive: the issue is one topic with no curated items."""
     files = {"issue": issue, **derived}
     rep = {"items": 0, "items_without_link": [], "numbers": {}, "drift": [], "label_conflicts": [],
            "weekday_errors": [], "dashes": {}, "field_counts": {}, "characters": {}}
@@ -140,22 +162,38 @@ def check(issue, derived):
     for label, values in sorted(by_label.items()):
         if len(values) > 1:
             rep["label_conflicts"].append({"label": label, "values": {v: sorted(f) for v, f in sorted(values.items())}})
-    rep["pass"] = not (rep["items_without_link"] or rep["drift"] or rep["label_conflicts"] or rep["weekday_errors"] or rep["dashes"])
+    problems = []
+    if not issue.strip():
+        problems.append("the issue is empty")
+    if rep["items"] == 0 and not deep_dive:
+        problems.append(ZERO_ITEMS)
+    untitled = sum(1 for b in item_blocks(issue) if not (b.splitlines() or [""])[0].strip())
+    if untitled:
+        problems.append(f"{untitled} item heading(s) with no title: write the item's headline after '### '")
+    if problems:   # the key is added only when there is a problem, so a passing report is the same as before
+        rep["problems"] = problems
+    rep["pass"] = not (problems or rep["items_without_link"] or rep["drift"] or rep["label_conflicts"] or rep["weekday_errors"] or rep["dashes"])
     return rep
 
 
 def read(path):
-    with open(path, encoding="utf-8", errors="replace") as fh:
+    with open(path, encoding="utf-8-sig", errors="replace") as fh:
         return fh.read()
 
 
 def main(argv=None):
+    utf8_output()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("issue", help="the issue text; curated items start with '### '")
     ap.add_argument("--derived", action="append", default=[], help="a derived asset file (repeat)")
+    ap.add_argument("--deep-dive", action="store_true", help="the issue is a deep dive (one topic, no '### ' curated items)")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(argv)
-    rep = check(read(a.issue), {p: read(p) for p in a.derived})
+    try:
+        rep = check(read(a.issue), {p: read(p) for p in a.derived}, a.deep_dive)
+    except OSError as e:
+        print(f"cannot read a file: {e}")
+        return 2
     if a.json:
         print(json.dumps(rep, ensure_ascii=False, indent=2))
         return 0 if rep["pass"] else 1
@@ -174,6 +212,8 @@ def main(argv=None):
         print(f"DATE: {w['file']}: {w['span']!r}: {w['problem']}")
     for name, d in rep["dashes"].items():
         print(f"DASH: {name}: {d}")
+    for pr in rep.get("problems", []):
+        print(f"PROBLEM: {pr}")
     print("PASS" if rep["pass"] else "FIX the items above, then run again")
     return 0 if rep["pass"] else 1
 
