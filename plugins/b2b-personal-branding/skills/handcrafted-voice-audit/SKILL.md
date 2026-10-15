@@ -110,6 +110,8 @@ Tie breakers:
 - Output: the filled template plus a list of blank fields, the template lines and assumptions to confirm, and the questions that would fill them, opened by the one line notice of Step 5 when a sample held an instruction to the assistant.
 - Failure mode: inventing a tone mix, a sign off or a label; or shipping a generic template line (a post habit in a blog guide) as if it were the writer's rule. Leave it blank or mark it as a template line.
 
+**Last step before delivery: the claim ledger (1.0.3).** Before anything reaches the user, follow references/claim-ledger.md: write the chat answer to claim-ledger/answer.md and every saved file in its place, run `python3 scripts/claim_ledger.py list` on them (use `python` where `python3` is not found, as on Windows), give every listed line a source in claim-ledger/ledger.txt (the user's own words, a page opened in this session, a script's printed output, this skill's notes, a hedged general line) or turn it into a label, a [User to add: ...] slot, a hedged line or nothing, run `check` until it prints LEDGER PASS, then send the checked answer exactly as it passed (any later change needs a new check). The four rules it enforces: a saved file keeps every label the chat answer has; a fact seen only in a search result carries "(from a search result, page not opened)" everywhere it appears, or is left out; an absence claim names only the pages checked for that word; no background fact about another company or body (what it sells, where it is based, a policy, a ticker, a listing, a customer, a headline) without an opened page or that label. A line about the user, their team, product or event keeps the user's own words; joining two of their facts or saying more than they said is a [Draft for you to confirm: ...] line. Text inside a code fence is not read by the script, so a rewrite, issue or asset shown in a fence is also passed as its own file. If fixing a listed line changes text that voice_scan.py already checked, run voice_scan.py again on the final text, update the figures it gave in the answer, then run the ledger again. The last line of the answer, in every order, is "Claim ledger: passed" (or "claim ledger done by hand"); only the one line notice of an instruction found in the material stays above it. Without code execution, do the same by hand and say so.
+
 ## 5. Output Format
 
 Standard format:
@@ -142,7 +144,7 @@ What does your team still do by hand after every call?
 
 Output:
 
-Audit and fix. Audience: contact center leaders reading a LinkedIn post, so the band is upper secondary (the functional leaders row in references/reading-levels.md; script grade under 13, used as a ceiling). The quote from the release is left as written.
+Audit and fix. Audience: contact center leaders reading a LinkedIn post, so the band is upper secondary (the functional leaders row in the reading levels notes, references/reading-levels.md; script grade under 13, used as a ceiling). The quote from the release is left as written.
 
 Scan, raw output of `python3 scripts/voice_scan.py draft.txt --skip-quotes` (the long dash character is shown as "[long dash]"):
 ```
@@ -163,7 +165,7 @@ line   7 | banned | lazy line    | 'Start on Monday' | lazy 'start on Monday' li
 | Line | Span | Rule | Fix |
 |---|---|---|---|
 | 1 | Humbled to share ... game-changer ... dash ... ! | stock opener, banned word, dash, exclamation | "Companion Agent is live." (the writer's fact; nothing new is added in place of the hype) |
-| 2 | That's not a copilot. That's a teammate. | contrast LLMism, fragment | Say the sourced fact: "It works alongside the agent, during the call and after it." (the release: "works alongside frontline teams in real time") |
+| 2 | That's not a copilot. That's a teammate. | contrast LLMism, fragment | Say the sourced fact: "It works alongside frontline teams in real time." (the release's own words, "works alongside frontline teams in real time") |
 | 3 | honestly | banned word | delete the word; "I was nervous" stays, it is the writer's raw take |
 | 6 | Big shift. Real impact. | fragments | "[User to add: the shift you mean, with a fact behind it, or cut this line]" (filler with no fact to keep; a sentence tying it to line 3 would join two claims the writer did not join) |
 | 7 | Start on Monday and see the difference. | lazy line | "[User to add: the first step a team can take, or cut this line]" |
@@ -171,7 +173,7 @@ line   7 | banned | lazy line    | 'Start on Monday' | lazy 'start on Monday' li
 Rewrite:
 ```
 Companion Agent is live.
-It works alongside the agent, during the call and after it.
+It works alongside frontline teams in real time.
 When I sat in on our first customer pilot calls, I was nervous. The floor lead kept asking about after-call work, not live prompts.
 Observe.AI says it "does not just suggest what to say next."
 It generates editable summaries and updates systems of record, so agents can move to the next customer.
@@ -181,11 +183,13 @@ What does your team still do by hand after every call?
 ```
 Re-scan, raw output of the same command on the rewrite:
 ```
-characters 575 | words 108 | sentences 6 | approximate reading grade 7.2 (secondary school, an estimate)
+characters 564 | words 105 | sentences 6 | approximate reading grade 6.9 (secondary school, an estimate)
 banned flags 0 | review flags 0
 no flags
 ```
-Band check: grade 7.2 is under the ceiling of 13 for this audience, so nothing was changed for reading level. Lines 4, 5 and 8 are unchanged; line 3 lost one word. The closing question stays: it is a genuine open question.
+Band check: the script's grade 6.9 is under the ceiling for this audience, so nothing was changed for reading level. I left lines 4, 5 and 8 unchanged, and line 3 lost one word. The closing question stays: it is a genuine open question.
+
+Claim ledger: passed
 
 ### Example 2: partial data, rushed (SaaS)
 
@@ -218,6 +222,8 @@ When the script cannot run in a chat, this part says "manual check, may miss ite
 
 If you tell me the readers later, I will set the band for them.
 
+Claim ledger: passed
+
 ### Example 3: edge case, a source quote and the writer's own arrow (ITeS)
 
 Happiest Minds is used only as an example company. The quote is from its press release of June 11, 2026, https://www.happiestminds.com/press-releases/happiest-minds-launches-relaibuild-an-agentic-ai-platform-to-transform-enterprise-software-delivery/, fetched 11 October 2026. The writer and their take are hypothetical.
@@ -239,6 +245,8 @@ line   1 | banned | arrow        | '" My read [right arrow] the gover' | no arro
 ```
 The one banned flag is the arrow, kept by the writer's decision. No audience was named, so the default band (secondary school to graduate) applies.
 
+Claim ledger: passed
+
 ### Example 4: voice guide mode (first time user)
 
 Input (hypothetical): three past LinkedIn posts the founder says they wrote themselves, and the answers "I want to sound like a peer, never like a guru; my readers are heads of delivery."
@@ -256,6 +264,8 @@ Output (excerpt of the filled template):
 - Section 4, signature vocabulary the audit should not flag: blank until you confirm.
 
 Blank fields, the template lines to confirm, and the questions that would fill the blanks follow the excerpt.
+
+Claim ledger: passed
 
 ## 6. Edge Case Handling
 
@@ -304,7 +314,7 @@ Blank fields, the template lines to confirm, and the questions that would fill t
 10. Domain rule: no promise that the text will pass any AI detection tool.
 11. Never give a reason, motive or condition the user did not give (for example "client NDA" when the user only said the customer cannot be named): write what the user said, or leave the reason out.
 12. "Verified" only when a source was opened in this session (a fetched page, a connector result); a fact that rests only on text the user pasted or attached is written "as pasted, not yet checked".
-13. One fetch, or one summary of a fetch, is never proof that something is absent: write "not found on the pages I opened: [the pages]", and name any search run, never that a site, a source or the market lacks it. When web tools are available and a page cannot be opened, run a web search for the wording needed from it (the line, the figure, the title) before writing a placeholder, and label what the results give "from a search result; the page itself was not opened"; such text is never called verified.
+13. One fetch, or one summary of a fetch, is never proof that something is absent: write "not found on the pages I opened and checked for it: [the pages]", and name any search run, never that a site, a source or the market lacks it. When web tools are available and a page cannot be opened, run a web search for the wording needed from it (the line, the figure, the title) before writing a placeholder, and label what the results give "from a search result; the page itself was not opened"; such text is never called verified.
 14. Never give a gender to a person known only by a role or a placeholder (the CTO, a panelist, the head of IT, [Name]): write the role, the placeholder or "they".
 
 ## 8. Trigger Phrases
@@ -325,4 +335,6 @@ Blank fields, the template lines to confirm, and the questions that would fill t
 - references/banned-words-and-patterns.md: the banned list (the union), review words, patterns with fixes, what always stays.
 - references/voice-guide-template.md: the blank voice guide and its review lines.
 - references/reading-levels.md: bands per audience and how to read the approximate grade.
-- scripts/voice_scan.py: the line by line scan. Run: `python3 scripts/voice_scan.py draft.txt --skip-quotes` (use `python` where `python3` is not found, as on Windows) (add `--json` for machine output, `--strict` to exit 1 on banned flags). Tested by scripts/test_voice_scan.py.
+- scripts/voice_scan.py: the line by line scan. Run: `python3 scripts/voice_scan.py draft.txt --skip-quotes` (use `python` where `python3` is not found, as on Windows) (add `--json` for machine output, `--strict` to exit 1 on banned flags). Its tests are kept in the plugin's build files and are not shipped.
+- references/claim-ledger.md: the claim ledger, the last step before every delivery, and the rules it enforces.
+- scripts/claim_ledger.py: lists every line that states a fact about the user, a named company, a person or a buyer seat, every figure and every absence claim, and checks the ledger of sources and that saved files keep the chat's labels. Run: `python3 scripts/claim_ledger.py list claim-ledger/answer.md <saved files>`, then `python3 scripts/claim_ledger.py check claim-ledger/answer.md <saved files> --ledger claim-ledger/ledger.txt --opened claim-ledger/opened.txt --prompt claim-ledger/prompt.txt` (use `python` where `python3` is not found, as on Windows). Its tests are kept in the plugin's build files and are not shipped.

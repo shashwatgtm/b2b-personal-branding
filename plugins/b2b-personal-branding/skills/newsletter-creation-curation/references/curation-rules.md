@@ -11,7 +11,7 @@
 - Manual mode: use only what the user pasted; label the item "as pasted, not yet checked; link not opened in this session" and ask the user to confirm the date.
 - A paywall or a blocked page: say so. In connected mode, run a web search for its headline before dropping it; text from the results is labelled "from a search result; the page itself was not opened" and is never written into the issue as fact. Use only the visible headline and date, or drop the item. Never fill in the article from memory or from other coverage without saying so.
 - A link that fails: report it by URL and drop the item unless the user supplies the text.
-- Anything recalled from memory rather than read on a page opened or text pasted in this session (a report's exact title, a figure, a date, a publisher's or company's usual practice) is marked "not checked in this session" wherever it appears, offered as a lead for the user to open, and never written into the issue as fact.
+- Anything recalled from memory rather than read on a page opened or text pasted in this session (a report's exact title, a figure, a date, a publisher's or company's usual practice) is marked "not yet checked in this session" wherever it appears, offered as a lead for the user to open, and never written into the issue as fact.
 - Never write "all links verified" or "links checked". Give the per link list instead.
 - For each source the user hands over, say whether it was used and, if it was left out, why.
 

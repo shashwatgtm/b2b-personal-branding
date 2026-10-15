@@ -2,7 +2,7 @@
 
 Three skills for B2B professionals who want to be known for their work without inventing anything about themselves: founders, CXOs, marketing leaders, consultants and practitioners, and the ghostwriters and agencies who write for them.
 
-Version 1.0.2.
+Version 1.0.3.
 
 ## Skills
 
@@ -14,6 +14,18 @@ Example prompt: "Make this launch post sound human. Audience: contact center lea
 
 **newsletter-creation-curation** plans a newsletter and writes each issue with three beats per story (what happened, why it matters, your take), subject lines, preview text, a separate share card and a teaser post. Every curated item carries its source link and a checked date, numbers are locked across every asset, and your platform's paste and render rules are checked before writing.
 Example prompt: "Turn these three links and my notes into this fortnight's issue for heads of delivery."
+
+## What changed in 1.0.3
+
+- Every skill now ends with a claim ledger before it answers: a new script, claim_ledger.py (standard library only), lists every line of the answer and of every saved file that states a fact about you, a named company, a person or a buyer, every figure and every "not on the site" claim. Claude gives each line its source (your own words, a page opened in this session, a script's printed output, the plugin's sector notes) or turns it into a label, a [User to add: ...] slot, a hedged line, or nothing, runs the check again until it passes, and sends you exactly the checked text.
+- Saved files keep every label the chat answer has ("[Draft for you to confirm: ...]", "as pasted, not yet checked", "from a search result, page not opened"); the check reports a saved file that drops one.
+- A fact seen only in a search result is labelled "from a search result, page not opened" everywhere it appears, or left out, and is never counted as a second source.
+- A claim that a site does not say something names only the pages checked for that word.
+- No background fact about another company or body (what it sells, where it is based, a policy, a ticker, a listing, a customer, a headline) without a page opened in this session or the search label.
+- Lines about you, your team, your product or your event keep your own words; anything that joins two of your facts or says more than you said is marked as a draft for you to confirm.
+- Working files: the ledger keeps its notes in a claim-ledger folder in your working folder (the answer as checked, your messages, the list of pages opened, a script's printed output, the ledger). Nothing in it is sent anywhere; delete it whenever you like.
+- The last line of every answer says "Claim ledger: passed" (or "claim ledger done by hand" when code cannot run). The newsletter skill's labels for unopened items now read "as pasted, not yet checked; link not opened in this session", and its recalled-from-memory label reads "not yet checked in this session", so the check recognises them. Some worked examples in the skills were reworded so that each line keeps your words or carries one source.
+- The shipped plugin folder no longer carries the scripts' test files; the tests are kept and run in the plugin's build files.
 
 ## What changed in 1.0.2
 
@@ -50,7 +62,7 @@ In Claude Code:
 
 ## What it fetches and runs
 
-The skills run inside Claude. When web search or fetch is available, they open only the pages needed: a company's own About page or press release, the pages you name, and your newsletter platform's help pages. They never search for or profile a person. Each skill has one small Python script (standard library only) with its own test file: the scripts count characters and words, find dashes, compare numbers across assets and check the weekday of written dates, and the voice audit's script also finds banned words and patterns. The scripts read only the text you give them, use no network, and write no files; --json only changes the printed format. Nothing is published, scheduled or sent by these skills.
+The skills run inside Claude. When web search or fetch is available, they open only the pages needed: a company's own About page or press release, the pages you name, and your newsletter platform's help pages. They never search for or profile a person. Each skill has one small Python script (standard library only): the scripts count characters and words, find dashes, compare numbers across assets and check the weekday of written dates, and the voice audit's script also finds banned words and patterns. The scripts read only the text you give them, use no network, and write no files; --json only changes the printed format. Nothing is published, scheduled or sent by these skills.
 
 ## Examples
 
@@ -58,7 +70,7 @@ The worked examples in each skill use real companies (Freshworks, Happiest Minds
 
 ## Privacy
 
-This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. When web tools are available, the skills open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. What you type into Claude is handled under your own Claude account terms.
+This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. When web tools are available, the skills open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. What you type into Claude is handled under your own Claude account terms. The claim ledger script, claim_ledger.py, reads the answer and the files Claude saved for you, uses no network and writes no files; Claude keeps its working notes (the answer as checked, your messages, the pages opened, a script's printed output, the ledger) in a claim-ledger folder in your working folder.
 
 ## Security
 
