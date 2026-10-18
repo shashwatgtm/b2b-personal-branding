@@ -8,6 +8,10 @@ Personal branding skills for B2B professionals, built by Shashwat Ghosh, Helix G
 
 Version 1.0.3. More plugins by Helix GTM Consulting: https://tools.gtmhelix.com/plugins/
 
+## What changed in 1.0.4
+
+- The claim ledger script added in 1.0.3 is removed, with the step that ran it, so the plugin ships only the small checking scripts it had in 1.0.2. The writing rules of 1.0.3 stay.
+
 ## What changed in 1.0.3
 
 - Every skill now ends with a claim ledger before it answers: a new script, claim_ledger.py (standard library only), lists every line of the answer and of every saved file that states a fact about you, a named company, a person or a buyer, every figure and every "not on the site" claim. Claude gives each line its source (your own words, a page opened in this session, a script's printed output, the plugin's sector notes) or turns it into a label, a [User to add: ...] slot, a hedged line, or nothing, runs the check again until it passes, and sends you exactly the checked text.
@@ -68,7 +72,7 @@ The worked examples inside the skills use real companies (Freshworks, Happiest M
 
 ## Privacy
 
-This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. The skills run inside Claude. When web tools are available, they open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. The small Python scripts in each skill run on text you give them, use no network, and write no files. What you type into Claude is handled under your own Claude account terms. The claim ledger script, claim_ledger.py, reads the answer and the files Claude saved for you, uses no network and writes no files; Claude keeps its working notes (the answer as checked, your messages, the pages opened, a script's printed output, the ledger) in a claim-ledger folder in your working folder.
+This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. The skills run inside Claude. When web tools are available, they open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. The small Python scripts in each skill run on text you give them, use no network, and write no files. What you type into Claude is handled under your own Claude account terms.
 
 ## Security
 
