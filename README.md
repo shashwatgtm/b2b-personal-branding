@@ -1,6 +1,8 @@
 # B2B Personal Branding
 
-Personal branding skills for B2B professionals, built by Shashwat Ghosh, Helix GTM Consulting.
+Personal branding skills for B2B founders, executives, consultants and the ghostwriters who write for them, built by Shashwat Ghosh, Helix GTM Consulting. They help you decide what to be known for, whether a draft sounds machine written, and what goes in your newsletter. You give them your own facts, drafts or links; you get positioning and bios, a line by line voice audit that rewrites only what it flags, or a sourced newsletter issue.
+
+This plugin runs in Claude Code and Claude Cowork. The same skills are also bundled in the Helix GTM Suite for Gemini CLI and Antigravity: https://github.com/shashwatgtm/helix-gtm-suite
 
 - **personal-branding-authority**: positioning statement, short, medium, long and speaker bios, LinkedIn headline and About, brand narrative, content pillars, and a 4 to 6 post personal branding series plan, all built from your own facts with "[User to add: ...]" wherever a fact is missing.
 - **handcrafted-voice-audit**: a line by line audit of machine-sounding text that rewrites only what it flags, keeps your raw take and source quotes, sets the reading level per audience, and builds a voice guide from a blank template.

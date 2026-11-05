@@ -1,20 +1,17 @@
 ---
 name: personal-branding-authority
 description: >
-  Builds a B2B professional's personal brand from their own facts and lived
-  experience: positioning statement, professional bios (short, medium, long,
-  speaker bio, host introduction if asked), LinkedIn headline and About rewrite,
-  brand narrative, content pillars, and a 4 to 6 post personal branding series
-  plan. For founders, CXOs, marketing leaders, consultants, practitioners and
-  ghostwriters. Use when someone says "write my bio", "professional bio",
-  "speaker bio", "bio for the conference", "author bio", "award nomination
-  bio", "rewrite my LinkedIn profile", "LinkedIn headline", "About section",
-  "personal brand", "personal branding", "position me", "positioning
-  statement for me", "what should I be known for", "brand narrative", "my
-  brand story", "content pillars", "personal branding series", "executive
-  branding" or "founder brand". Not for company or product positioning, a
-  single LinkedIn post (hand off to a post skill if installed), newsletters,
-  a line by line voice audit, or AI search visibility audits.
+  Helps a B2B professional decide what to be known for and how to say it, from their own facts. For
+  founders, CXOs, leaders, consultants and ghostwriters. You give it your CV, profile or notes. You
+  get a positioning statement, bios (short, medium, long, speaker bio, host introduction if asked),
+  a LinkedIn headline and About rewrite, a brand narrative, content pillars and a 4 to 6 post
+  personal branding series plan. Use when someone says "write my bio", "professional bio", "speaker
+  bio", "bio for the conference", "author bio", "award nomination bio", "rewrite my LinkedIn
+  profile", "LinkedIn headline", "About section", "personal brand", "personal branding", "position
+  me", "positioning statement for me", "what should I be known for", "brand narrative", "my brand
+  story", "content pillars", "personal branding series", "executive branding" or "founder brand".
+  Not for company or product positioning, a single LinkedIn post, newsletters, a line by line voice
+  audit, or AI search visibility audits.
 ---
 
 # Personal Branding and Authority

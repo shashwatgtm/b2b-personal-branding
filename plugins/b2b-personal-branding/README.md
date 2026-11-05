@@ -1,6 +1,6 @@
 # B2B Personal Branding
 
-Three skills for B2B professionals who want to be known for their work without inventing anything about themselves: founders, CXOs, marketing leaders, consultants and practitioners, and the ghostwriters and agencies who write for them.
+Three skills for B2B professionals who want to be known for their work without inventing anything about themselves: founders, CXOs, marketing leaders, consultants and practitioners, and the ghostwriters and agencies who write for them. They help you decide what to be known for, whether a draft sounds machine written, and what goes in each newsletter issue. You give them your own facts, drafts or links; you get positioning and bios, a voice audit, or a sourced newsletter issue.
 
 Version 1.0.3.
 

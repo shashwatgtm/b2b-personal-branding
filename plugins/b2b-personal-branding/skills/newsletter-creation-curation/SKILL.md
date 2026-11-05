@@ -1,20 +1,17 @@
 ---
 name: newsletter-creation-curation
 description: >
-  Plans, curates and writes B2B newsletters where every curated item carries
-  its source link and a checked date: recurring sections, editorial calendar,
-  each issue with three beats per story (what happened, why it matters, your
-  take), subject lines, preview text, a separate share card and a teaser
-  post, numbers locked across every asset, platform paste and render limits
-  checked first. For founders, executives, marketing and content leads, and
-  agencies. Use when someone says "write this week's newsletter", "this
-  fortnight's issue", "newsletter issue", "curate news for my newsletter",
-  "roundup", "turn these links into a newsletter", "newsletter subject
-  lines", "preview text", "share card for the issue", "start a newsletter",
-  "newsletter sections", "editorial calendar for the newsletter" or
-  "newsletter teaser post". Not for a single LinkedIn post, a research report,
-  a press release, email nurture, or sending and list management. Never
-  invents a quote, statistic, news item, date or link; never sends.
+  Helps a B2B professional or team decide what goes in each newsletter issue. For founders,
+  executives, marketing and content leads, and agencies. You give it links, notes or a topic. You
+  get sections, an editorial calendar, issues with three beats per story (what happened, why it
+  matters, your take), subject lines, preview text, a share card and a teaser post; each item has
+  its source link and a checked date and numbers match across every asset. Use when someone says
+  "write this week's newsletter", "this fortnight's issue", "newsletter issue", "curate news for my
+  newsletter", "roundup", "turn these links into a newsletter", "newsletter subject lines", "preview
+  text", "share card for the issue", "start a newsletter", "newsletter sections", "editorial
+  calendar for the newsletter" or "newsletter teaser post". Not for a LinkedIn post, a research
+  report, a press release, email nurture, or sending and list management. Never invents a quote,
+  statistic, news item, date or link; never sends.
 ---
 
 # Newsletter Creation and Curation
