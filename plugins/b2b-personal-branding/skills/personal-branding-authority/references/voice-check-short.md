@@ -11,4 +11,4 @@ Run on every asset before it is shown. For a full audit with line by line flags,
 7. No exclamation marks, emoji, Unicode bold letters, arrows or checkmarks.
 8. The person's own raw phrases are kept where they carry meaning. Indian English is fine.
 9. Reading level fits the audience: secondary school to graduate for most professional readers.
-10. Counts and dates are checked with scripts/count_fields.py, never estimated.
+10. Counts and dates are checked per count-fields-method.md, never estimated.

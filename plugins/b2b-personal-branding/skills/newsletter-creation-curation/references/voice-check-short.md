@@ -11,4 +11,4 @@ Run on the issue and every derived asset before they are shown. For a full audit
 7. No exclamation marks, emoji, Unicode bold letters, arrows or checkmarks.
 8. The writer's own raw phrases and takes are kept where they carry meaning. Indian English is fine.
 9. Reading level fits the audience: secondary school to graduate for most professional readers.
-10. Counts, numbers, links and dates are checked with scripts/asset_check.py, never estimated.
+10. Counts, numbers, links and dates are checked per asset-check-method.md, never estimated.

@@ -9,7 +9,7 @@
     {
       "name": "b2b-personal-branding",
       "source": "./plugins/b2b-personal-branding",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "description": "For B2B professionals: decide what to be known for and whether a draft sounds machine written. Give it your own facts, drafts or links; get bios, positioning, a LinkedIn profile and content pillars, a line by line voice audit, and newsletters where every item cites its source."
     }
   ]

@@ -10,7 +10,7 @@ Platforms change what they accept. Check before formatting, and format for the p
 | Is pasted HTML accepted, and in which parts (body, welcome email, templates)? | help page, and the user's plan level (some features depend on the plan) |
 | Images: hosted by the platform or linked; size limits; ALT text field | help page |
 | Embeds and scripts: email clients do not run scripts, so nothing interactive goes in an email | help page |
-| Character or length limits on subject, preview, title and description fields | the field itself or the help page; count by script |
+| Character or length limits on subject, preview, title and description fields | the field itself or the help page; count per asset-check-method.md |
 | Canonical link: can the platform point to the original page? | help page |
 | The user's own design file or template | replicate it exactly; never invent a template |
 
@@ -24,7 +24,7 @@ Record what was checked, with the page and date, in the answer. If nothing could
 - A long form version on another platform: keep the canonical page as the home, set the canonical link where the platform allows it, and keep source links out of the body flow there when the user wants readers to stay; list sources at the end instead.
 - Cross posting: each platform's own guidelines apply; never paste the same text to several platforms where the platform treats it as duplicate; adapt the opening and the call to action. A planned series across platforms follows the approved series plan (issue-structure.md, section 4), with each data point and story in one part only.
 
-Every derived asset goes through scripts/asset_check.py with the issue (add --deep-dive only for a deep dive issue).
+Every derived asset goes through the check in asset-check-method.md with the issue (deep dive on only for a deep dive issue).
 
 ## 3. Approval gate
 

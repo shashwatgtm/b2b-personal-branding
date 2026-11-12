@@ -8,7 +8,11 @@ This plugin runs in Claude Code and Claude Cowork. The same skills are also bund
 - **handcrafted-voice-audit**: a line by line audit of machine-sounding text that rewrites only what it flags, keeps your raw take and source quotes, sets the reading level per audience, and builds a voice guide from a blank template.
 - **newsletter-creation-curation**: newsletter plans and issues where every curated item cites its source link and a checked date, with subject lines, a separate share card and a teaser post, numbers locked across every asset.
 
-Version 1.0.3. More plugins by Helix GTM Consulting: https://tools.gtmhelix.com/plugins/
+Version 1.0.5. More plugins by Helix GTM Consulting: https://tools.gtmhelix.com/plugins/
+
+## What changed in 1.0.5
+
+- The plugin is now Markdown only, so the Claude directory can accept it. The three small checking scripts (the voice scan, the newsletter issue and asset check, and the field count) are removed. Each is replaced by a written method in its skill's references folder (voice-scan-method.md, asset-check-method.md, count-fields-method.md) that gives the same flags, counts, numbers and printed lines; Claude follows it with its own code execution when it is available and by hand otherwise, and says so. Every skill, rule and output format of 1.0.4 stays.
 
 ## What changed in 1.0.4
 
@@ -74,9 +78,11 @@ The worked examples inside the skills use real companies (Freshworks, Happiest M
 
 ## Privacy
 
-This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. The skills run inside Claude. When web tools are available, they open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. The small Python scripts in each skill run on text you give them, use no network, and write no files. What you type into Claude is handled under your own Claude account terms.
+This plugin sends no data to Helix GTM Consulting and runs no server. The plugin itself stores nothing: it keeps no account, no log and no copy of your work, and any file Claude writes for you goes only to your own working folder. The skills run inside Claude. When web tools are available, they open company pages, pages you name and your newsletter platform's help pages; they never search for or profile a person. The plugin ships no code: the exact checks (counts, dashes, numbers across assets, weekdays and the voice scan) are written methods that Claude follows on the text you give it. What you type into Claude is handled under your own Claude account terms.
 
 ## Security
+
+All three skills are Markdown instruction files with no code. The exact checks are written methods in each skill's `references/` folder, which Claude follows with your text. Nothing is published, scheduled or sent, and the plugin sends no data anywhere. You can read every word before installing.
 
 To report a security problem, email shashwat@gtmhelix.com with the subject "Security report: b2b-personal-branding". Please do not open a public issue for it.
 

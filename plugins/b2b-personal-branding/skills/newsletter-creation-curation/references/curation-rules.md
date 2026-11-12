@@ -21,7 +21,7 @@
 ## 3. Dates
 - Write the date as the source writes it, with the month as a word.
 - A relative date ("last Tuesday", "yesterday") becomes an exact date taken from the source page.
-- Any weekday written next to a date is checked by scripts/asset_check.py.
+- Any weekday written next to a date is checked per asset-check-method.md.
 - The issue date and year are checked too: a draft that prints last year's date is a known failure.
 - The user sets a recency window for the issue (for example items from the last two weeks). Items outside it are flagged as stale, with their date shown, and kept only if the user says so.
 
@@ -45,4 +45,4 @@
 - Competitors of the user's employer: report facts from primary sources only; no mockery.
 
 ## 7. Number lock across assets
-Every number in the subject line, preview text, share card, teaser post and any derived asset must match the issue. Run scripts/asset_check.py with the issue and every derived file (add --deep-dive only for a deep dive issue with no "### " curated items). Fix drift to the sourced figure in the issue, then run it again. Spelled out numbers ("three launches") are not caught by the script; check them by reading.
+Every number in the subject line, preview text, share card, teaser post and any derived asset must match the issue. Run the check in asset-check-method.md on the issue and every derived file (deep dive on only for a deep dive issue with no "### " curated items). Fix drift to the sourced figure in the issue, then run it again. Spelled out numbers ("three launches") are not caught by the check; check them by reading.

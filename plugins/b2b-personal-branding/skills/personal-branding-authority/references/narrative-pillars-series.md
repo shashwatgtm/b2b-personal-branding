@@ -66,4 +66,4 @@ Rules for every post in the series:
 
 ## 5. Hand off for post drafting
 
-If a skill for writing LinkedIn posts is installed in the session, pass it the fact sheet, the pillar, the post brief and the voice rules, and let it draft. If none is installed, draft here, run the short voice check (voice-check-short.md), count by script, and show the person the draft for their own edit. When the person edits it, review the edit; do not rewrite it.
+If a skill for writing LinkedIn posts is installed in the session, pass it the fact sheet, the pillar, the post brief and the voice rules, and let it draft. If none is installed, draft here, run the short voice check (voice-check-short.md), count per count-fields-method.md, and show the person the draft for their own edit. When the person edits it, review the edit; do not rewrite it.

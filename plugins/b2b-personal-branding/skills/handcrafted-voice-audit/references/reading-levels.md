@@ -10,9 +10,9 @@ The reading level is set for the readers, not for the writer. The same facts can
 
 ## Named audiences: one specific band each
 
-When the user names an audience, pick the row that matches the readers and the channel, set that one band, and name the row in the answer. The band is a ceiling: text above it is lowered with the steps below; text already below it is not made harder. The script's band names and grade ranges (scripts/voice_scan.py) are used so the re-scan can be compared with the band directly. These rows are a working method for this skill, not a measured standard.
+When the user names an audience, pick the row that matches the readers and the channel, set that one band, and name the row in the answer. The band is a ceiling: text above it is lowered with the steps below; text already below it is not made harder. The scan's band names and grade ranges (voice-scan-method.md) are used so the re-scan can be compared with the band directly. These rows are a working method for this skill, not a measured standard.
 
-| Named audience and channel | Specific band | Script grade to stay under |
+| Named audience and channel | Specific band | Scan grade to stay under |
 |---|---|---|
 | Frontline and field teams, new reps, broad social media readers, mixed language readers | secondary school | 10 |
 | Functional leaders and managers reading a social post, a newsletter or a blog (for example sales leaders, HR leaders, heads of delivery, contact center leaders, marketing leaders) | upper secondary | 13 |
@@ -21,10 +21,10 @@ When the user names an audience, pick the row that matches the readers and the c
 
 An audience that fits no row: choose the nearest row by role and channel, say which row was used and why, and offer one question to confirm it. Two audiences for one text (for example field teams and their managers): use the lower band.
 
-How to use the script's grade:
-- scripts/voice_scan.py reports an approximate reading grade (the Flesch Kincaid formula with a simple syllable count) and a band name. It is an estimate. It is a signal to look again, not a verdict.
+How to use the scan's grade:
+- The voice scan (voice-scan-method.md) reports an approximate reading grade (the Flesch Kincaid formula with a simple syllable count) and a band name. It is an estimate. It is a signal to look again, not a verdict.
 - Short texts (under about 60 words) give unstable grades; say so instead of reporting them as precise.
-- Names, product terms and quoted text raise the grade without making the text harder for its readers. Run with --skip-quotes when quotes are long.
+- Names, product terms and quoted text raise the grade without making the text harder for its readers. Run the scan with skip quotes on when quotes are long.
 
 How to lower the level without losing the writer's voice:
 - Split long sentences at "and", "but" or "because", keeping the writer's own words.

@@ -48,7 +48,7 @@ Every curated item carries its source link and a checked date, every number matc
 - Connected (web search or fetch): open every page before writing about it; check the platform's help page for paste and render rules.
 - Manual: use only what the user pasted; label items "as pasted, not yet checked; link not opened in this session"; ask the user to test one paragraph in their platform.
 - Mixed: open what is reachable; report each failed or blocked link by URL.
-- Code execution available: run scripts/asset_check.py on the issue and every derived asset. Not available: check by reading and say so.
+- Code execution available: run the issue and asset check per references/asset-check-method.md with your own code execution, on the issue and every derived asset. Not available: follow the same method by hand and say "counted by hand per the method".
 
 **Urgency:** a send deadline today means the issue and the subject lines first, derived assets second, the plan never. Two waits still hold under any deadline: a series across issues or platforms with no approved plan gets its short series plan approved before drafting (references/issue-structure.md, section 4), and when the user or their editor picks the lead, the candidates come first and the issue waits for the choice (Step 4). A correction to a sent issue means the correction note first. In both orders, the one line notice of an instruction found in a source (Step 8) still comes before everything else.
 
@@ -109,9 +109,9 @@ Tie breakers:
 
 **Step 7. Checks.**
 - Input: the issue and every derived asset as files.
-- Action: run scripts/asset_check.py issue.md --derived each_asset (add --deep-dive for a deep dive issue, the one topic format with no "### " curated items in references/issue-structure.md, section 3; otherwise an issue with 0 curated items does not pass). The script counts only lines that start with "### " as curated items: when the user's own template marks items another way (for example bold lines), run it on a copy where each item heading starts with "### ", say so, and leave the user's issue as it is; fix every item without a link, every drift, every label conflict, every wrong weekday and every dash; read spelled out numbers and month ranges by eye; run the short voice check (references/voice-check-short.md).
-- Output: the script result ("PASS") or the manual check note.
-- Failure mode: a "consistent" claim without the script output.
+- Action: run the issue and asset check per references/asset-check-method.md (with your own code execution when it is available; by hand otherwise, saying "counted by hand per the method") on the issue and each derived asset (deep dive on for a deep dive issue, the one topic format with no "### " curated items in references/issue-structure.md, section 3; otherwise an issue with 0 curated items does not pass). The check counts only lines that start with "### " as curated items: when the user's own template marks items another way (for example bold lines), run it on a copy where each item heading starts with "### ", say so, and leave the user's issue as it is; fix every item without a link, every drift, every label conflict, every wrong weekday and every dash; read spelled out numbers and month ranges by eye; run the short voice check (references/voice-check-short.md).
+- Output: the check result ("PASS") or the manual check note.
+- Failure mode: a "consistent" claim without the check output.
 
 **Step 8. Deliver with the approval gate.**
 - Input: checked assets.
@@ -128,7 +128,7 @@ Standard format:
 3. Per link table.
 4. The issue (masthead, editor's note, lead, other stories, practical step, resource, reader prompt, close), in the user's template if they have one; suggested takes carry their marker.
 5. Derived assets asked for, each with counts.
-6. Checks: asset_check.py result or the manual note.
+6. Checks: the issue and asset check result or the manual note.
 7. Open items and the approval gate.
 
 ### Example 1: happy path, connected mode (ITeS and SaaS readers)
@@ -161,9 +161,9 @@ An agent beside the frontline, before, during and after the call. Observe.AI lau
 
 Share card text: [Newsletter name], issue [number] / Lead: a delivery platform its maker says is designed with governance by default / Three launches from May to August 2026, read for heads of delivery. Image brief: a plain photo of a delivery team's planning board, no logos of the companies named.
 
-Subject lines (counts by script; each claims no more than the body, and the governance wording stays the maker's): "Three launches from May to August, read for heads of delivery" (61); "A governance claim, a FedRAMP step and a frontline agent" (56); "Rel(AI)Build, Freshservice and Companion Agent for delivery heads" (65).
+Subject lines (counts by the fixed method; each claims no more than the body, and the governance wording stays the maker's): "Three launches from May to August, read for heads of delivery" (61); "A governance claim, a FedRAMP step and a frontline agent" (56); "Rel(AI)Build, Freshservice and Companion Agent for delivery heads" (65).
 
-Checks (scripts/asset_check.py issue.md --derived card.txt): curated items 3, without a link: none; no drift; no label conflicts; weekday of October 13, 2026 correct; PASS. Read by eye: the card first said "June to August"; the Observe.AI item is from May, so it was corrected to "May to August".
+Checks (references/asset-check-method.md, the issue and card.txt): curated items 3, without a link: none; no drift; no label conflicts; weekday of October 13, 2026 correct; PASS. Read by eye: the card first said "June to August"; the Observe.AI item is from May, so it was corrected to "May to August".
 
 Open items and approval: editor's note, the three takes (one suggested take to confirm or replace), close and sign off; you approve and send from your own account.
 
@@ -176,7 +176,7 @@ Output:
 - Item 3: the article is behind a paywall and you have only the headline. I used the headline and the date you gave and did not summarise the article. Option: paste the paragraphs you can see, or drop the item.
 - Takes: [User to add: your take] on items 1 and 3; your note covers item 2.
 - Platform: not checked (no browsing). Please paste one test paragraph into your newsletter editor and tell me if headings and links survive.
-- Checks: asset_check.py could not run here; numbers and dates were checked by reading. Run `python3 scripts/asset_check.py issue.md --derived card.txt` before sending.
+- Checks: counted by hand per the method (references/asset-check-method.md); numbers and dates were checked by reading. Run the check with code execution on the issue and card.txt before sending.
 
 ### Example 3: edge case, a stat with no source and a teaser that upgrades a claim
 
@@ -189,7 +189,7 @@ Output:
 Three problems, each fixed before anything goes out:
 1. "Got FedRAMP authorization" upgrades the source. The release says Freshservice "has achieved FedRAMP® 'In-Process' status," "signaling significant progress toward full authorization." The teaser must say "In Process", not "authorization".
 2. "Four big launches this month": the issue has three items, from May, June and August. Corrected to "three launches from May to August".
-3. "80% of CIOs plan to buy AI agents this year" has no source in the issue, and I have none to give. scripts/asset_check.py flags it: `DRIFT: teaser has 80 % which is not in the issue`. Options: give me the source and I will check what it measured (region, sample, date), or I can search for a primary source, or the line goes. I will not round or invent a figure, and any figure I recall on this topic would be marked "not yet checked in this session" and given only as a lead for you to open.
+3. "80% of CIOs plan to buy AI agents this year" has no source in the issue, and I have none to give. The issue and asset check flags it: `DRIFT: teaser has 80 % which is not in the issue`. Options: give me the source and I will check what it measured (region, sample, date), or I can search for a primary source, or the line goes. I will not round or invent a figure, and any figure I recall on this topic would be marked "not yet checked in this session" and given only as a lead for you to open.
 
 Corrected teaser (no link in the body; the link goes in a comment; each line says what its own source says, with no trend across the three): "Three launches from May to August 2026, read for heads of delivery. One release says its platform is "designed with governance by default". Another is a service desk product reaching FedRAMP "In Process" status, a step toward federal buyers rather than the finish line. What do your clients ask about first when you bring agents into delivery?"
 
@@ -219,24 +219,24 @@ Re-check after the fix: PASS.
 - Connected: open every page; check the platform's help page.
 - Manual: label everything unopened; ask for a test paste.
 - Mixed: report each blocked or failed page by URL.
-- API or programmatic use: return the issue and assets under fixed headings; asset_check.py --json output can be passed through.
+- API or programmatic use: return the issue and assets under fixed headings; the check's JSON output (references/asset-check-method.md) can be passed through.
 
 **Context**
 - Normal: full workflow.
 - Crisis (a sent issue has an error): a short correction note first, with the right fact and its source, then the fix to the archive copy.
 - Time sensitive: issue first; the two waits in the urgency rule (section 2) still hold.
 - Role or permission: employee and client rules from platform-and-distribution.md, section 5.
-- Timezone or locale: the issue date in the readers' main timezone, written with the month as a word; weekday checked by script.
+- Timezone or locale: the issue date in the readers' main timezone, written with the month as a word; weekday checked per the method.
 
 ## 7. Anti Hallucination Rules
 
 1. Never invent a news item, quote, statistic, date, link or source; surface what was opened or state that it is missing.
 2. Never assume a page says something because of its headline or other coverage; open it, or label it unopened.
-3. Never claim links were verified, numbers locked or a platform checked unless the per link table, the script output or the check lines are shown.
+3. Never claim links were verified, numbers locked or a platform checked unless the per link table, the check output or the check lines are shown.
 4. If unsure about a date, a figure or what a status means, ask once or say the source does not define it.
 5. Never fabricate sources, statistics, names, dates, quotes or money amounts.
 6. Use "[User to add: ...]" for takes, the editor's note and any missing fact.
-7. Report real errors (blocked page, paywall, failed script). Never give fallback, mock, dummy or simulated items.
+7. Report real errors (blocked page, paywall, a check that could not be run). Never give fallback, mock, dummy or simulated items.
 8. Domain rule: never upgrade a source's claim in any asset, including the subject line, preview text, headings, share card and teaser (an "In Process" status is not an authorization; a launch is not a customer win; a pilot is not a rollout; a claim attributed in the body stays attributed in every line derived from it).
 9. Domain rule: never present a take as the writer's own when they did not give it.
 10. Domain rule: never promise subscribers, open rates, clicks or leads, and never quote an unsourced benchmark.
@@ -268,4 +268,4 @@ Re-check after the fix: PASS.
 - references/platform-and-distribution.md: platform checks, derived assets, approval gate, owned list choice, employee and client rules.
 - references/verticals.md: the nine verticals' buyers, words, proof and cautions.
 - references/voice-check-short.md: the voice check run on every asset.
-- scripts/asset_check.py: items without links, an issue with 0 curated items (allowed only with --deep-dive), number drift and label conflicts across assets, weekday check, dashes, counts per section and per line. Run: `python3 scripts/asset_check.py issue.md --derived card.txt --derived teaser.txt [--deep-dive]` (use `python` where `python3` is not found, as on Windows). Its tests are kept in the plugin's build files and are not shipped.
+- references/asset-check-method.md: the issue and asset check as a fixed method: items without links, an issue with 0 curated items (allowed only for a deep dive), number drift and label conflicts across assets, weekday check, dashes, counts per section and per line, and the exact printed lines, text or JSON. Followed with your own code execution when it is available and by hand otherwise.

@@ -67,7 +67,7 @@ Angle types to choose from, only where the person's material supports them:
 
 ## 4. Bios
 
-Lengths are defaults; the person's or the organiser's limit wins. Count with scripts/count_fields.py.
+Lengths are defaults; the person's or the organiser's limit wins. Count per count-fields-method.md.
 
 | Format | Default length | Voice | Use |
 |---|---|---|---|
@@ -88,7 +88,7 @@ Speaker bio extras: the talk title as the organiser has it; a pronunciation note
 
 ## 5. Profile rewrite
 
-Field limits change. Check them on the platform's own help page in connected mode, or ask the person to read them from the profile editor in manual mode. Never state a limit from memory. Count every field with scripts/count_fields.py and pass the limit with --limit.
+Field limits change. Check them on the platform's own help page in connected mode, or ask the person to read them from the profile editor in manual mode. Never state a limit from memory. Count every field per count-fields-method.md with the limit given.
 
 - Headline: what they do, for whom, and one focus or proof point, in the person's own lead identity and focus order. Plain words, no emoji, no self applied labels.
 - Paired short fields: when two short fields are read together (for example a headline and a short introduction, or a title and a summary), do not repeat a keyword or claim across them. Give each field different information so the pair carries as much as its limits allow, and list the words both fields share before delivery. When the person asks for one field to carry as much as it allows, write up to its limit using only fact sheet items; never pad.
@@ -112,4 +112,4 @@ Use only testimonials or recommendations the person supplies (pasted text, or a 
 
 ## 7. Number and title lock
 
-Before delivery, run scripts/count_fields.py on all assets together. Any label that carries two different numbers (for example "12 years" in one bio and "14 years" in another) is fixed to the fact sheet value or turned into a placeholder. Titles must match letter for letter across every asset.
+Before delivery, count all assets together per count-fields-method.md. Any label that carries two different numbers (for example "12 years" in one bio and "14 years" in another) is fixed to the fact sheet value or turned into a placeholder. Titles must match letter for letter across every asset.

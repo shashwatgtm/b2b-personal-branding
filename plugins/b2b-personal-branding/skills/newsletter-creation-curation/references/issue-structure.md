@@ -6,8 +6,8 @@ The user's own template or design always wins. When they have one, reproduce it 
 
 | Part | What goes in it | Length default |
 |---|---|---|
-| Subject line | what the reader gets, in plain words; no clickbait, no fake urgency; never a stronger claim than the body, and an attributed claim stays attributed | check the length the user's email platform shows before cutting; count by script |
-| Preview text | extends the subject with one more fact from the issue, under the same guard as the subject line | count by script |
+| Subject line | what the reader gets, in plain words; no clickbait, no fake urgency; never a stronger claim than the body, and an attributed claim stays attributed | check the length the user's email platform shows before cutting; count per asset-check-method.md |
+| Preview text | extends the subject with one more fact from the issue, under the same guard as the subject line | count per asset-check-method.md |
 | Masthead | newsletter name, issue number, date with weekday checked | one line |
 | Editor's note | a personal note from the writer: what they noticed this fortnight, from their own work | two to four sentences, the writer's words or [User to add: ...] |
 | Lead story | the most important item for these readers; when the user or their editor picks the lead, up to three candidates first, and the issue waits for their choice | up to about five lines |
@@ -32,8 +32,8 @@ Every item has:
 ## 3. Formats to choose from
 
 - Curated roundup: three to six items with the three beats, plus the editor's note. Best when the writer reads widely and has a point of view on each item.
-- Deep dive: one topic, the writer's own experience first, sources as support, one practical step. Best when the writer has done the work themselves. It has no "### " curated items, so run scripts/asset_check.py with --deep-dive; without it, an issue with 0 curated items does not pass.
-- Mixed: a short personal note, one deep item, three curated items, one resource. Its curated items are "### " items, so the check runs without --deep-dive.
+- Deep dive: one topic, the writer's own experience first, sources as support, one practical step. Best when the writer has done the work themselves. It has no "### " curated items, so run the check in asset-check-method.md with deep dive on; without it, an issue with 0 curated items does not pass.
+- Mixed: a short personal note, one deep item, three curated items, one resource. Its curated items are "### " items, so the check runs with deep dive off.
 
 ## 4. Series and calendar
 
@@ -49,7 +49,7 @@ The share card is its own image, made for link previews and social posts. Do not
 - Content: a large image, the newsletter's masthead, the cover story headline, and one to two lines beside it.
 - Size: the platform's current link preview recommendation, checked on its own help page; never stated from memory.
 - The skill writes the card's text and an image brief; the user or their design tool makes the image.
-- Every number on the card matches the issue (run scripts/asset_check.py).
+- Every number on the card matches the issue (run the check in asset-check-method.md).
 
 ## 6. Locked content
 

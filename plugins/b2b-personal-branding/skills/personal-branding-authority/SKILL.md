@@ -45,7 +45,7 @@ Detect these before writing anything. If a signal is missing and it changes the 
 - Connected (web search or fetch available): fetch the employer's own About page or the page the person names, quote it exactly with URL and fetch date in the fact sheet (assets state it plainly, references/positioning-and-bios.md, section 1). Never search for the person or profile them.
 - Manual (no web tools): use only what the person pastes; label company facts "as pasted, not yet checked".
 - Mixed: fetch what is reachable, label the rest.
-- Code execution available: run scripts/count_fields.py. Not available: count by hand, say the counts are manual, and give the command to run later.
+- Code execution available: count per references/count-fields-method.md with your own code execution. Not available: count by hand per the same method and say "counted by hand per the method".
 
 **Urgency:**
 - Normal: full fact sheet, then assets, then checks.
@@ -108,9 +108,9 @@ Tie breakers:
 
 **Step 6. Checks.**
 - Input: all drafted assets in one file with "## " headings.
-- Action: when web tools are available and a platform limit was not given (for example the headline or About limit of a profile), open the platform's own help page for the current limit, cite it with link and fetch date, and count against it; if the page cannot be opened, say so, run a web search for the limit's wording, show any result labelled "from a search result; the page itself was not opened", and ask the person to confirm the limit. Run scripts/count_fields.py (with --limit for every limit the person or the platform's own help page gave) on a file that holds only the text to publish under each "## " heading: a label line such as "Near-final, built only from the facts you gave; please confirm" stays out of it, and a draft line keeps only its drafted words inside its brackets (its source goes under open items). A word or character target, and every limit, is met on the script's count without the draft labels (the words "Draft for you to confirm:" and the brackets are not part of the text the person will publish); quote that count, never the count with the labels inside, and name the placeholders still open, since filling them changes the count. Fix label conflicts, dashes and wrong weekdays. Run the short voice check (references/voice-check-short.md). Re-trace every number and title to the fact sheet. Check every asset drafted in this session for any value the person corrected (the old value must not remain), and search every asset (body text, headings, captions, image file names, notes, open items) for each name on the fact sheet's "not to be named" list and its short forms; replace any hit with the description the person uses. For paired short fields, list the words both share (references/positioning-and-bios.md, section 5). count_fields.py does none of these three checks (corrected values, names, shared words): they are done by reading or a text search, and the answer says which.
-- Output: the script result (or "counts are manual"), with each count stated without the draft labels, a one line confirmation that titles and numbers match across assets, and, when they apply, which corrected values were checked and that the old value remains nowhere, which names on the "not to be named" list were searched and that none remain, and the words paired fields share, each with how it was checked.
-- Failure mode: claiming "counted" or "consistent" without the script output; a name that must not be named left in any asset, or in a redaction note. Never do this; say what was and was not checked.
+- Action: when web tools are available and a platform limit was not given (for example the headline or About limit of a profile), open the platform's own help page for the current limit, cite it with link and fetch date, and count against it; if the page cannot be opened, say so, run a web search for the limit's wording, show any result labelled "from a search result; the page itself was not opened", and ask the person to confirm the limit. Count per references/count-fields-method.md (with your own code execution when it is available; by hand otherwise, saying "counted by hand per the method"), with every limit the person or the platform's own help page gave, on a text that holds only the text to publish under each "## " heading: a label line such as "Near-final, built only from the facts you gave; please confirm" stays out of it, and a draft line keeps only its drafted words inside its brackets (its source goes under open items). A word or character target, and every limit, is met on the method's count without the draft labels (the words "Draft for you to confirm:" and the brackets are not part of the text the person will publish); quote that count, never the count with the labels inside, and name the placeholders still open, since filling them changes the count. Fix label conflicts, dashes and wrong weekdays. Run the short voice check (references/voice-check-short.md). Re-trace every number and title to the fact sheet. Check every asset drafted in this session for any value the person corrected (the old value must not remain), and search every asset (body text, headings, captions, image file names, notes, open items) for each name on the fact sheet's "not to be named" list and its short forms; replace any hit with the description the person uses. For paired short fields, list the words both share (references/positioning-and-bios.md, section 5). The field count method does none of these three checks (corrected values, names, shared words): they are done by reading or a text search, and the answer says which.
+- Output: the count result (or "counted by hand per the method"), with each count stated without the draft labels, a one line confirmation that titles and numbers match across assets, and, when they apply, which corrected values were checked and that the old value remains nowhere, which names on the "not to be named" list were searched and that none remain, and the words paired fields share, each with how it was checked.
+- Failure mode: claiming "counted" or "consistent" without the count output; a name that must not be named left in any asset, or in a redaction note. Never do this; say what was and was not checked.
 
 **Step 7. Deliver.**
 - Input: checked assets.
@@ -126,7 +126,7 @@ Standard format, in this order, only the parts asked for:
 2. Fact sheet (table; short form for a single bio).
 3. Positioning (paragraph, one line version, "not for" line).
 4. Assets, each under its own heading and label (near-final for the person to confirm, or draft with placeholders): headline, About, bios by length, speaker bio, host introduction (only when asked), narrative, pillars table, series plan table.
-5. Checks: script output or "manual count", number and title lock result, and, when they apply, the corrected value check, the "not to be named" search result and the words paired fields share, each saying how it was checked (Step 6).
+5. Checks: count output or "counted by hand per the method", number and title lock result, and, when they apply, the corrected value check, the "not to be named" search result and the words paired fields share, each saying how it was checked (Step 6).
 6. Open items: every placeholder, every draft line with its source, and every needs check fact.
 7. Questions: at most three, in one message.
 
@@ -164,7 +164,7 @@ I lead product marketing for Freshservice at Freshworks. Before each launch I sp
 **Medium bio**
 [Name] leads product marketing for Freshservice at Freshworks. Freshworks provides AI-first service software for customer and employee experiences. Before each launch, [Name] spends a week with a customer's service desk team. [Name] led the launch messaging for two product releases. [Name] has 11 years in B2B SaaS marketing. [Draft for you to confirm: [Name] writes for IT leaders at growing companies (your stated audience).] [User to add: one personal line, if you want one]
 
-Checks (scripts/count_fields.py, limit from your editor):
+Checks (references/count-fields-method.md, limit from your editor):
 ```
 Positioning: 358 characters, 62 words; without the draft labels: 330 characters, 57 words
   numbers: 11 years
@@ -195,7 +195,7 @@ Not written, because you did not ask for it: a host introduction to be read alou
 
 Three questions: What did your team change in delivery that you can talk about in public? How many years have you led delivery? Has your comms team cleared the panel topic?
 
-Checks (scripts/count_fields.py, placeholders counted as written): speaker bio 333 characters, 56 words; no label carries two different numbers. No years, team sizes, clients or results were invented; every gap is a placeholder.
+Checks (references/count-fields-method.md, placeholders counted as written): speaker bio 333 characters, 56 words; no label carries two different numbers. No years, team sizes, clients or results were invented; every gap is a placeholder.
 
 ### Example 3: edge case, an employee claim that cannot stand (AI native)
 
@@ -272,7 +272,7 @@ Each post: one idea, opens with "I" and what the person did, contrast early, no 
 4. If unsure about a fact, ask once in the questions block rather than guess.
 5. Never fabricate sources, statistics, names, dates, quotes or money amounts. A quote from a company page is copied exactly with its URL.
 6. Use "[User to add: ...]" wherever a fact is missing and no labelled draft line can be built, and only there: never in place of a fact the person gave. Repeat each one under open items.
-7. Report real errors (a failed fetch, an unreadable file, a script that did not run). Never give fallback, mock, dummy or simulated data.
+7. Report real errors (a failed fetch, an unreadable file, a count that could not be run). Never give fallback, mock, dummy or simulated data.
 8. Domain rule: never upgrade a claim ("one of" to "the leading", "worked on" to "built", "co-founder" to "founder", "pilot" to "customer", "prospect" to "partner").
 9. Domain rule: no personality profiling of a named person, including the user's competitors or idols; study only public positioning on pages the person names.
 10. Domain rule: never write a first person claim for a principal (CEO, client) that they have not made; mark it for their confirmation.
@@ -304,4 +304,4 @@ Each post: one idea, opens with "I" and what the person did, contrast early, no 
 - references/employee-and-founder-rules.md: role rules, regulated sectors, privacy.
 - references/verticals.md: the nine verticals' buyers, words, proof and cautions.
 - references/voice-check-short.md: the voice check this skill runs on every asset.
-- scripts/count_fields.py: characters, words, dashes, numbers, label conflicts and weekday check per "## " field. Run: `python3 scripts/count_fields.py assets.md --limit "Headline=<limit you were given>"` (use `python` where `python3` is not found, as on Windows). Its tests are kept in the plugin's build files and are not shipped.
+- references/count-fields-method.md: characters, words, dashes, numbers, limits, label conflicts and weekday check per "## " field, as a fixed method with the exact printed lines, text or JSON. Followed with your own code execution when it is available and by hand otherwise.

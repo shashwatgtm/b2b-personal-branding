@@ -1,6 +1,6 @@
 # Banned words, banned patterns and what stays allowed
 
-This list is the union of several working lists kept by a B2B marketer over two years of editing machine drafts by hand. scripts/voice_scan.py carries the same list. When the user has their own list, theirs is added to this one; nothing here is removed unless the user says so.
+This list is the union of several working lists kept by a B2B marketer over two years of editing machine drafts by hand. The voice scan (voice-scan-method.md) carries the same list. When the user has their own list, theirs is added to this one; nothing here is removed unless the user says so.
 
 ## 1. Banned words and phrases (flag every time in text for publication)
 
@@ -50,7 +50,7 @@ Writing style that also counts as a pattern, from a voice template's avoid list:
 
 ## 4. What stays, always
 
-- Text inside quotation marks taken from a source (a press release, a report, a person's words). It is quoted as the source wrote it, even when it uses a banned word. Only the writer's own sentences are audited. Run the script with --skip-quotes for this.
+- Text inside quotation marks taken from a source (a press release, a report, a person's words). It is quoted as the source wrote it, even when it uses a banned word. Only the writer's own sentences are audited. Run the voice scan with skip quotes on for this.
 - The writer's raw human take: emotion, a small mistake, a frustration, humour, spoken phrasing. Emotion can matter more than a neat narrative.
 - Regional English such as Indian English, unless it blocks understanding.
 - Facts, names, numbers and dates. The audit never changes them. If one looks wrong, it is listed as a question, not fixed.
